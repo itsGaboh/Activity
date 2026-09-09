@@ -1,77 +1,75 @@
-CpE Mate
+MISTERM ACTIVITY
 
-CpE Mate is an Android application designed to help Computer Engineering students organize their subjects, study notes, engineering formulas, and online learning resources in one place.
+Sure — the simplest project idea that satisfies all the requirements is:
 
-Course
+📱 Student Task Manager
 
-BS Computer Engineering (BS CpE)
+An Android app where students can add, view, edit, and delete tasks.
 
-Problem
+Main screens
 
-Computer Engineering students often need to manage many technical subjects, formulas, notes, and study resources. These materials can become difficult to organize when they are scattered across different applications and websites.
+1. Home / Task List
 
-Solution
 
-CpE Mate provides a simple mobile study companion where students can access:
 
-📚 Computer Engineering subjects and topics
-📝 Personal study notes
-🧮 Engineering and electronics calculators
-🌐 Online engineering resources
-⭐ Favorite subjects and topics
-🧭 Simple navigation between app features
-Main Features
-Subjects
+Shows all tasks using RecyclerView.
 
-Students can browse Computer Engineering subjects and view important topics and formulas.
+Example: Study for Math Exam
 
-Notes
+2. Add Task
 
-Students can create, edit, and delete their personal study notes.
 
-Calculator
 
-The application provides basic engineering and electronics calculations such as Ohm's Law, electrical power, and resistance calculations.
+Task title
 
-API Resources
+Description
 
-The application retrieves useful engineering learning resources from an online API.
+Due date
 
-Favorites
+Save button
 
-Students can save frequently used subjects and topics for quick access.
+3. Edit Task
 
-Profile
 
-Students can view their basic profile information and application settings.
 
-Navigation
-Home
- ├── Subjects
- ├── Calculator
- ├── Notes
- └── Profile
+Change task information.
 
-Technologies
-Kotlin
-Android Studio
-Jetpack Compose
+Update or Delete buttons.
+
+4. Settings
+
+
+
+Dark mode ON/OFF
+
+Save preference using SharedPreferences.
+
+How it meets the requirements
+
+Requirement	Simple implementation
+
+Room / SQLite	Store tasks in Room Database
+CRUD	Add, view, edit, delete tasks
+RecyclerView	Display task list
+Navigation	Home → Add/Edit → Settings
+SharedPreferences	Save dark mode or notification preference
+
+Suggested structure
+
+MainActivity
+├── HomeFragment
+│    └── RecyclerView
+├── AddTaskFragment
+├── EditTaskFragment
+└── SettingsFragment
+
 Room Database
-Retrofit
-REST API
-Material Design
-Target Users
+└── Task
+├── id
+├── title
+├── description
+└── dueDate
 
-The primary users are Computer Engineering students who need a convenient way to organize technical study materials and engineering resources.
+Why this is good: It's easy to build, easy to demonstrate CRUD, and directly solves an everyday student problem.
 
-Future Improvements
-Login and student accounts
-Cloud synchronization
-More engineering calculators
-Quiz and flashcard features
-Dark mode
-Notifications and study reminders
-More online engineering resources
-Project Status
-
-🚧 Currently under development.
+Would mind teach me how to create this?
