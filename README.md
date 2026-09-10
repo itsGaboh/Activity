@@ -1,4 +1,4 @@
-MISTERM ACTIVITY
+MIDTERM ACTIVITY
 
 Sure — the simplest project idea that satisfies all the requirements is:
 
