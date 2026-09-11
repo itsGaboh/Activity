@@ -1,75 +1,294 @@
-MIDTERM ACTIVITY
+Student Task Manager
 
-Sure — the simplest project idea that satisfies all the requirements is:
-
-📱 Student Task Manager
-
-An Android app where students can add, view, edit, and delete tasks.
-
-Main screens
-
-1. Home / Task List
+A simple Android application for managing student tasks. The app allows
+users to create, view, edit, and delete tasks, while also providing a
+Dark Mode setting that is saved between app sessions.
 
 
-
-Shows all tasks using RecyclerView.
-
-Example: Study for Math Exam
-
-2. Add Task
+Features
 
 
-
+Create tasks with:
 Task title
-
 Description
-
 Due date
 
-Save button
+View tasks in a RecyclerView
 
-3. Edit Task
+Edit existing tasks
+
+Delete tasks with confirmation
+
+Dark Mode / Light Mode
+
+Persistent settings using SharedPreferences
+
+Persistent task storage using Room Database
+
+Multiple screens using Android Activities and Intents
 
 
-
-Change task information.
-
-Update or Delete buttons.
-
-4. Settings
+Technologies Used
 
 
+Android Studio
 
-Dark mode ON/OFF
+Kotlin
 
-Save preference using SharedPreferences.
+Java
 
-How it meets the requirements
-
-Requirement	Simple implementation
-
-Room / SQLite	Store tasks in Room Database
-CRUD	Add, view, edit, delete tasks
-RecyclerView	Display task list
-Navigation	Home → Add/Edit → Settings
-SharedPreferences	Save dark mode or notification preference
-
-Suggested structure
-
-MainActivity
-├── HomeFragment
-│    └── RecyclerView
-├── AddTaskFragment
-├── EditTaskFragment
-└── SettingsFragment
+XML
 
 Room Database
-└── Task
-├── id
-├── title
-├── description
-└── dueDate
 
-Why this is good: It's easy to build, easy to demonstrate CRUD, and directly solves an everyday student problem.
+SQLite (through Room)
 
-Would mind teach me how to create this?
+RecyclerView
+
+SharedPreferences
+
+AndroidX AppCompat
+
+Material Components
+
+
+Project Structure
+
+app/
+└── src/
+    └── main/
+        ├── java/com/example/projectgroup4/
+        │   ├── MainActivity.kt
+        │   ├── AddTaskActivity.kt
+        │   ├── EditTaskActivity.kt
+        │   ├── SettingsActivity.kt
+        │   ├── TaskAdapter.kt
+        │   ├── Task.java
+        │   ├── TaskDao.java
+        │   └── TaskDatabase.java
+        │
+        ├── res/layout/
+        │   ├── activity_main.xml
+        │   ├── activity_add_task.xml
+        │   ├── activity_edit_task.xml
+        │   ├── activity_settings.xml
+        │   └── item_task.xml
+        │
+        └── AndroidManifest.xml
+
+Database
+
+The application uses Room Database to store tasks locally on the
+device.
+
+
+Task Entity
+
+The Task class represents the tasks database table.
+
+
+Each task contains:
+
+
+
+id - Automatically generated unique ID
+
+title - Task title
+
+description - Task description
+
+dueDate - Task due date
+
+
+CRUD Operations
+
+The TaskDao provides the four main database operations:
+
+
+  Operation   Room Code         Purpose
+
+
+
+  Create      insert(task)    Adds a new task
+  Read        getAllTasks()   Retrieves all tasks
+  Update      update(task)    Changes an existing task
+  Delete      delete(task)    Removes a task
+
+
+RecyclerView
+
+RecyclerView is used on the Home screen to display the list of tasks.
+
+
+TaskAdapter.kt connects the task data from the Room database to the
+item_task.xml layout.
+
+
+The adapter:
+
+
+
+Receives a list of tasks.
+
+Creates a view for each task.
+
+Displays the task title, description, and due date.
+
+Opens the Edit screen when a task is tapped.
+
+Provides the delete functionality through a long press.
+
+
+Navigation
+
+The application uses Android Intent objects to navigate between
+Activities.
+
+
+Main screens:
+
+
+
+Home - Displays all saved tasks.
+
+Add Task - Creates a new task.
+
+Edit Task - Updates an existing task.
+
+Settings - Controls the application's appearance.
+
+
+Dark Mode
+
+Dark Mode is controlled using AppCompatDelegate.
+
+
+The user's preference is stored with SharedPreferences using the key:
+
+
+dark_mode
+
+When the application starts, MainActivity reads the saved preference
+and applies either Dark Mode or Light Mode.
+
+
+This allows the user's selected theme to remain after closing and
+reopening the application.
+
+
+How to Use
+
+Add a Task
+
+
+Open the application.
+
+Tap Add Task.
+
+Enter a task title.
+
+Enter a description.
+
+Enter a due date.
+
+Tap SAVE TASK.
+
+
+The task is saved to the Room database and appears on the Home screen.
+
+
+Edit a Task
+
+
+Tap an existing task.
+
+Change the information.
+
+Save the changes.
+
+
+The updated information is stored in the database.
+
+
+Delete a Task
+
+
+Long-press an existing task.
+
+Confirm the deletion.
+
+The task is removed from the database and the list is refreshed.
+
+
+Change Theme
+
+
+Open Settings.
+
+Toggle Dark Mode.
+
+The application changes between Dark Mode and Light Mode.
+
+The selected setting is saved for the next time the application is opened.
+
+
+Installation
+
+
+Clone or download this repository.
+
+Open the project in Android Studio.
+
+Allow Gradle to sync and download the required dependencies.
+
+Connect an Android device or start an Android emulator.
+
+Run the application.
+
+
+Requirements
+
+
+Android Studio
+
+Android SDK
+
+Minimum Android version: Android 7.0 (API 24)
+
+Compile SDK: API 33
+
+
+Learning Objectives
+
+This project demonstrates:
+
+
+
+Android Activity development
+
+XML-based user interface design
+
+Kotlin and Java interoperability
+
+Room Database
+
+SQLite persistence
+
+CRUD operations
+
+RecyclerView and Adapter usage
+
+Android navigation with Intents
+
+SharedPreferences
+
+Application theme management
+
+
+Project:
+
+Project Group 4
+
+
+Student Task Manager --- Midterm Activity Project.
+
